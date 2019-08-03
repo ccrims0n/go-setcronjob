@@ -59,7 +59,7 @@ func NewClient(auth Auth) (*Client, error) {
 	}, nil
 }
 
-func (c *Client) newRequest(method, target, action string, v url.Values, body io.Reader}) (*http.Request, error) {
+func (c *Client) newRequest(method, target, action string, v url.Values, body io.Reader) (*http.Request, error) {
 	v.Set("token", c.token)
 
 	url := fmt.Sprintf("%s/%s.%s?%s", apiBaseURL, target, action, v.Encode())
