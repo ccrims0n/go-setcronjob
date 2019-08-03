@@ -7,3 +7,7 @@ type response struct {
 	info    []string
 	message string
 }
+
+func (r *response) GetData() interface{} {
+	return r.data
+}

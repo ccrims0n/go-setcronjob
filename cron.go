@@ -101,9 +101,19 @@ func (c *crons) Get(id int) (*Cron, error) {
 
 func (c *crons) Add(cron *Cron) (*Cron, error) {
 	body, err := json.Marshal(cron)
-	_, err = c.client.newRequest(http.MethodGet, "cron", "get", nil, strings.NewReader(string(body)))
+	req, err := c.client.newRequest(http.MethodPost, "cron", "get", nil, strings.NewReader(string(body)))
 
-	return nil, err
+	response, err := c.client.doRequest(req)
+
+	if err != nil {
+		return nil, err
+	}
+
+	var newCron Cron
+
+	newCron, _ = response.GetData().(Cron)
+
+	return &newCron, nil
 }
 
 func (c *crons) Edit(id int, cron *Cron) (*Cron, error) {
@@ -119,7 +129,9 @@ func (c *crons) Disable(id int) (*Cron, error) {
 }
 
 func (c *crons) Delete(id int) (error) {
-	_, err := c.client.newRequest(http.MethodGet, "cron", "delete", url.Values{"id": {fmt.Sprint(id)}}, nil)
+	req, err := c.client.newRequest(http.MethodGet, "cron", "delete", url.Values{"id": {fmt.Sprint(id)}}, nil)
+
+	_, err = c.client.doRequest(req)
 
 	return err
 }
