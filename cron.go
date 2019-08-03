@@ -73,7 +73,7 @@ type Crons interface {
 	Edit(id int, cron *Cron) (*Cron, error)
 	Enable(id int) (*Cron, error)
 	Disable(id int) (*Cron, error)
-	Delete(id int) (*Cron, error)
+	Delete(id int) (error)
 	Run(id int) (*Cron, error)
 	Logs(id int) (*Cron, error)
 	Failures(id int) (*Cron, error)
@@ -118,7 +118,7 @@ func (c *crons) Disable(id int) (*Cron, error) {
 
 }
 
-func (c *crons) Delete(id int) (*Cron, error) {
+func (c *crons) Delete(id int) (error) {
 
 }
 

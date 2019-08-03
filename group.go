@@ -11,7 +11,7 @@ type Groups interface {
 	Lookup(name string) (*Group, error)
 	Add(group *Group) (*Group, error)
 	Edit(id int, group *Group) (*Group, error)
-	Delete(id int) (*Group, error)
+	Delete(id int) (error)
 	Vanish(id int) (*Group, error)
 	Empty(id int) (*Group, error)
 	Items(id int) (*[]Cron, error)
@@ -47,7 +47,7 @@ func (g *groups) Edit(id int, group *Group) (*Group, error) {
 
 }
 
-func (g *groups) Delete(id int) (*Group, error) {
+func (g *groups) Delete(id int) (error) {
 
 }
 
