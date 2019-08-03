@@ -107,30 +107,32 @@ func (c *crons) Add(cron *Cron) (*Cron, error) {
 }
 
 func (c *crons) Edit(id int, cron *Cron) (*Cron, error) {
-
+	return nil, nil
 }
 
 func (c *crons) Enable(id int) (*Cron, error) {
-
+	return nil, nil
 }
 
 func (c *crons) Disable(id int) (*Cron, error) {
-
+	return nil, nil
 }
 
 func (c *crons) Delete(id int) (error) {
+	_, err := c.client.newRequest(http.MethodGet, "cron", "delete", url.Values{"id": {fmt.Sprint(id)}}, nil)
 
+	return err
 }
 
 func (c *crons) Run(id int) (*Cron, error) {
-
+	return nil, nil
 }
 
 func (c *crons) Logs(id int) (*Cron, error) {
-
+	return nil, nil
 }
 
 func (c *crons) Failures(id int) (*Cron, error) {
-
+	return nil, nil
 }
 
