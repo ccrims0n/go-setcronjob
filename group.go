@@ -27,3 +27,38 @@ func newGroups(c Client) Groups {
 	}
 }
 
+func (g *groups) List() (*[]Group, error) {
+
+}
+
+func (g *groups) Get(id int) (*Group, error) {
+
+}
+
+func (g *groups) Lookup(name string) (*Group, error) {
+
+}
+
+func (g *groups) Add(group *Group) (*Group, error) {
+
+}
+
+func (g *groups) Edit(id int, group *Group) (*Group, error) {
+
+}
+
+func (g *groups) Delete(id int) (*Group, error) {
+
+}
+
+func (g *groups) Vanish(id int) (*Group, error) {
+
+}
+
+func (g *groups) Empty(id int) (*Group, error) {
+
+}
+
+func (g *groups) Items(id int) (*[]Cron, error) {
+
+}

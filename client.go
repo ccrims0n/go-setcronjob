@@ -26,7 +26,9 @@ type Auth struct {
 }
 
 func (auth *Auth) validate() error {
-	e := nil
+	var e error
+
+	e = nil
 
 	if auth.Token == "" {
 		e = errors.New("Token is required")
